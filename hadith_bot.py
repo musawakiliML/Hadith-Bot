@@ -2,6 +2,7 @@ import requests
 import os
 from telegram.ext import CommandHandler, Updater, MessageHandler, Filters, CallbackQueryHandler
 from telegram import InlineKeyboardMarkup, InlineKeyboardButton
+from patterns import pattern
 
 PORT = int(os.environ.get('PORT', 5000))
 TOKEN = "1682743874:AAFe-9mXdjoM0l9_77SYAmn5AG0Kqo7pp4k"
@@ -30,10 +31,11 @@ def get_hadith():
     hadith_book_number = json_hadith_response['bookNumber']
     hadith_topic = json_hadith_response['hadith'][0]['chapterTitle']
     hadith_body = json_hadith_response['hadith'][0]['body']
-    hadith_body_edited = hadith_body.replace("<br/>","").strip("<p></p>").replace("<b>","").replace("</b>","")
-    
+    hadith_body_edited = pattern(hadith_body)
+
     random_hadith = f"From Collection of {hadith_collection.title()}\n Book of {hadith_book_number} \
         \nUnder the topic:{hadith_topic}\n HADITH:{hadith_body_edited}"
+        
     return random_hadith
 
 # function to get collection
@@ -46,7 +48,8 @@ def get_collection(collection_name):
     response = requests.request("GET", url, data=payload, headers=headers)
 
     collections = response.json()
-    collections_edited = collections['collection'][0]['shortIntro'].replace("<i>","").replace("</i>","")
+    collections_edited = pattern(collections['collection'][0]['shortIntro'])
+
     return collections_edited
 
 
