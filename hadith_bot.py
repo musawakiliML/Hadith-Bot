@@ -2,7 +2,7 @@ import requests
 import os
 from telegram.ext import CommandHandler, Updater, MessageHandler, Filters, CallbackQueryHandler
 from telegram import InlineKeyboardMarkup, InlineKeyboardButton
-from patterns import pattern
+from patterns import pattern # a module to remove some html characters
 
 PORT = int(os.environ.get('PORT', 5000))
 TOKEN = "1682743874:AAFe-9mXdjoM0l9_77SYAmn5AG0Kqo7pp4k"
