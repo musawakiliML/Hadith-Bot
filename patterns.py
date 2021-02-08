@@ -1,5 +1,5 @@
 def pattern(value):
-    patterns = ['<p>', '</p>','<b>','</b>', '<br/>','<i>','</i>']
+    patterns = ['<p>', '</p>','<b>','</b>', '<br/>','<i>','</i>','<br>']
 
     for i in patterns:
         if i in value:
