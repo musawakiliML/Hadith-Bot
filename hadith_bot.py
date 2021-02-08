@@ -36,7 +36,7 @@ def get_hadith():
         \nUnder the topic:{hadith_topic}\n HADITH:{hadith_body_edited}"
     return random_hadith
 
-
+# function to get collection
 def get_collection(collection_name):
     url = f"https://api.sunnah.com/v1/collections/{collection_name}"
 
