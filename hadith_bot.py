@@ -74,7 +74,7 @@ def get_sunan_nasai(update, context):
     context.bot.send_message(chat_id = update.effective_chat.id, text = get_collection('nasai'))
 
 def get_sunan_abudawud(update, context):
-    context.bot.send_message(chat_id = update.effective_chat.id, text = get_collection('adudawud'))
+    context.bot.send_message(chat_id = update.effective_chat.id, text = get_collection('abudawud'))
 
 def get_jami_attirmidhi(update, context):
     context.bot.send_message(chat_id = update.effective_chat.id, text = get_collection('tirmidhi'))
